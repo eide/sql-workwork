@@ -18,5 +18,11 @@ INSERT
     INTO post
         (title, content, person)
     VALUES
+        ('Herp', 'Derp', (SELECT person FROM person WHERE name = 'Kåre'));
+
+INSERT
+    INTO post
+        (title, content, person)
+    VALUES
         ('Woop', 'Woopadoopa', (SELECT person FROM person WHERE name = 'Bob'));
 

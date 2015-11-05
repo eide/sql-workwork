@@ -4,15 +4,13 @@ CREATE TABLE company (
 );
 
 CREATE TABLE position (
-    position SERIAL PRIMARY KEY NOT NULL,
+    person INTEGER REFERENCES person NOT NULL,
     company INTEGER REFERENCES company NOT NULL,
-    title VARCHAR NOT NULL
+    title VARCHAR NOT NULL,
+    PRIMARY KEY (person, company)
 );
 
-INSERT INTO company (company_name) VALUES ('DummyCo');
-INSERT INTO position (company, title) VALUES (1, 'CEO');
-
 ALTER TABLE person DROP position;
-ALTER TABLE person ADD COLUMN position INTEGER NULL REFERENCES position ON DELETE SET NULL;
 
-UPDATE person SET position = 1 WHERE person = 1;
+INSERT INTO company (company_name) VALUES ('DummyCo');
+INSERT INTO position (company, person, title) VALUES (1, 1, 'CEO');
