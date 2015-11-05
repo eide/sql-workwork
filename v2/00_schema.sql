@@ -1,7 +1,6 @@
 CREATE TABLE person (
     person SERIAL PRIMARY KEY NOT NULL,
-    name VARCHAR NOT NULL,
-    position VARCHAR NULL
+    name VARCHAR NOT NULL
 );
 
 CREATE TABLE post (
